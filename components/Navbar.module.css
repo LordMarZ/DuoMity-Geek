@@ -1,5 +1,6 @@
 .nav {
-  background: var(--bg);
+  background: rgba(15,15,35,0.92);
+  backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
@@ -9,6 +10,16 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  position: relative;
+}
+
+.nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.4;
 }
 
 /* ── Logo ── */
@@ -31,18 +42,19 @@
   line-height: 1.1;
 }
 .logoTitle {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Russo One', sans-serif;
   font-size: 17px;
   color: var(--text);
-  letter-spacing: -0.3px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(124,58,237,0.2);
 }
-.logoTitle span { color: var(--accent); }
+.logoTitle span { color: var(--accent-2); }
 .logoSub {
   font-size: 8px;
-  color: var(--text-dim);
-  letter-spacing: 2px;
+  color: var(--accent);
+  letter-spacing: 2.5px;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 /* ── Right controls ── */
@@ -56,7 +68,8 @@
   height: 32px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--border);
+  border: 2px solid var(--accent-bd);
+  box-shadow: 0 0 8px rgba(124,58,237,0.2);
 }
 
 /* ── Hamburger button ── */
@@ -75,16 +88,17 @@
   padding: 8px;
   transition: all 0.15s;
 }
-.menuBtn:hover { border-color: var(--accent-bd); background: var(--surface2); }
-.menuBtnOpen { border-color: var(--accent-bd); background: var(--accent-soft); }
+.menuBtn:hover { border-color: var(--accent-bd); background: var(--surface2); box-shadow: var(--glow-sm); }
+.menuBtnOpen { border-color: var(--accent-bd); background: var(--accent-soft); box-shadow: var(--glow-sm); }
 .menuLine {
   display: block;
   width: 16px;
   height: 2px;
-  background: var(--text);
+  background: var(--text-muted);
   border-radius: 2px;
   transition: all 0.2s;
 }
+.menuBtnOpen .menuLine { background: var(--accent-2); }
 
 /* ── Dropdown ── */
 .overlay { position: fixed; inset: 0; z-index: 150; }
@@ -98,7 +112,7 @@
   border-radius: 14px;
   padding: 16px;
   z-index: 200;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7), var(--glow);
   animation: dropIn 0.15s ease;
 }
 @keyframes dropIn {
@@ -106,10 +120,10 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 .dropTitle {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 2.5px;
-  color: var(--text-dim);
+  letter-spacing: 3px;
+  color: var(--accent);
   margin-bottom: 12px;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--border);
@@ -130,8 +144,8 @@
 .dropApp:not(.dropActive):hover { background: var(--surface2); border-color: var(--border); }
 .dropActive { background: var(--accent-soft); border-color: var(--accent-bd); }
 .dropIcon { font-size: 22px; flex-shrink: 0; }
-.dropLabel { font-size: 12px; font-weight: 700; letter-spacing: 1px; color: var(--text); line-height: 1; margin-bottom: 2px; }
-.dropActive .dropLabel { color: var(--accent); }
+.dropLabel { font-size: 12px; font-weight: 700; letter-spacing: 1px; color: var(--text); line-height: 1; margin-bottom: 2px; text-transform: uppercase; }
+.dropActive .dropLabel { color: var(--accent-2); }
 .dropSub { font-size: 10px; color: var(--text-muted); }
 .dropArrow { margin-left: auto; font-size: 14px; color: var(--text-dim); }
 .dropCurrent {
@@ -139,7 +153,7 @@
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 1px;
-  color: var(--accent);
+  color: var(--accent-2);
   background: var(--accent-soft);
   border: 1px solid var(--accent-bd);
   padding: 2px 6px;
@@ -159,8 +173,9 @@
   padding: 3px 4px;
   border-radius: 4px;
   transition: color 0.12s;
+  font-family: 'Chakra Petch', sans-serif;
 }
-.dropInfoLink:hover { color: var(--text); }
+.dropInfoLink:hover { color: var(--accent-2); }
 .dropLogout {
   width: 100%;
   background: none;
@@ -169,14 +184,14 @@
   color: var(--text-muted);
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   padding: 8px;
   cursor: pointer;
-  font-family: inherit;
+  font-family: 'Chakra Petch', sans-serif;
   transition: all 0.15s;
   text-transform: uppercase;
 }
-.dropLogout:hover { color: var(--red); border-color: var(--red-bd, rgba(224,108,108,0.4)); }
+.dropLogout:hover { color: var(--red); border-color: var(--red-bd); }
 
 @media (max-width: 640px) {
   .nav { padding: 0 12px; }
