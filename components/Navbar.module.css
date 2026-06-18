@@ -1,0 +1,186 @@
+.nav {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* ── Logo ── */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+.logoImg {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  mix-blend-mode: screen;
+}
+.logoText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.logoTitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 17px;
+  color: var(--text);
+  letter-spacing: -0.3px;
+}
+.logoTitle span { color: var(--accent); }
+.logoSub {
+  font-size: 8px;
+  color: var(--text-dim);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ── Right controls ── */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+}
+
+/* ── Hamburger button ── */
+.menuBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 8px;
+  transition: all 0.15s;
+}
+.menuBtn:hover { border-color: var(--accent-bd); background: var(--surface2); }
+.menuBtnOpen { border-color: var(--accent-bd); background: var(--accent-soft); }
+.menuLine {
+  display: block;
+  width: 16px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+/* ── Dropdown ── */
+.overlay { position: fixed; inset: 0; z-index: 150; }
+.dropdown {
+  position: fixed;
+  top: 68px;
+  right: 16px;
+  width: 280px;
+  background: var(--surface);
+  border: 1px solid var(--border-md);
+  border-radius: 14px;
+  padding: 16px;
+  z-index: 200;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  animation: dropIn 0.15s ease;
+}
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.dropTitle {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  text-transform: uppercase;
+}
+.dropApps { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
+.dropApp {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: all 0.15s;
+  cursor: pointer;
+}
+.dropApp:not(.dropActive):hover { background: var(--surface2); border-color: var(--border); }
+.dropActive { background: var(--accent-soft); border-color: var(--accent-bd); }
+.dropIcon { font-size: 22px; flex-shrink: 0; }
+.dropLabel { font-size: 12px; font-weight: 700; letter-spacing: 1px; color: var(--text); line-height: 1; margin-bottom: 2px; }
+.dropActive .dropLabel { color: var(--accent); }
+.dropSub { font-size: 10px; color: var(--text-muted); }
+.dropArrow { margin-left: auto; font-size: 14px; color: var(--text-dim); }
+.dropCurrent {
+  margin-left: auto;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-bd);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.dropDivider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 8px 0;
+}
+.dropInfo { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
+.dropInfoLink {
+  display: block;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 3px 4px;
+  border-radius: 4px;
+  transition: color 0.12s;
+}
+.dropInfoLink:hover { color: var(--text); }
+.dropLogout {
+  width: 100%;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+  text-transform: uppercase;
+}
+.dropLogout:hover { color: var(--red); border-color: var(--red-bd, rgba(224,108,108,0.4)); }
+
+@media (max-width: 640px) {
+  .nav { padding: 0 12px; }
+  .logoImg { height: 32px; }
+  .logoTitle { font-size: 15px; }
+  .dropdown { right: 8px; left: 8px; width: auto; }
+}

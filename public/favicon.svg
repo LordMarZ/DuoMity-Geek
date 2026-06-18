@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Outer red ring -->
+  <circle cx="50" cy="50" r="50" fill="#B22234"/>
+  <!-- White ring -->
+  <circle cx="50" cy="50" r="39" fill="#ffffff"/>
+  <!-- Second red ring -->
+  <circle cx="50" cy="50" r="30" fill="#B22234"/>
+  <!-- Blue center -->
+  <circle cx="50" cy="50" r="20" fill="#3C3B6E"/>
+  <!-- White star -->
+  <polygon points="50,34 53.5,44.5 65,44.5 55.8,51 59.3,61.5 50,55 40.7,61.5 44.2,51 35,44.5 46.5,44.5" fill="#ffffff"/>
+</svg>
