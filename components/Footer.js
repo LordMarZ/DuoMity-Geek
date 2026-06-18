@@ -1,5 +1,5 @@
 export default function Footer() {
-  const cuponera = process.env.NEXT_PUBLIC_CUPONERA_URL || 'https://darkside-cafe.vercel.app'
+  const cuponera = process.env.NEXT_PUBLIC_CUPONERA_URL || 'https://darkside-cafe.vercel.app/tarjeta'
   const penca    = process.env.NEXT_PUBLIC_PENCA_URL    || 'https://darkside-penca.vercel.app'
   const quiz     = process.env.NEXT_PUBLIC_QUIZ_URL     || '#'
   const tienda   = 'https://darksidebros.com.uy'
