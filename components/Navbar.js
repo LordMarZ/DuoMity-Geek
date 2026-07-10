@@ -14,12 +14,14 @@ export default function Navbar({ user }) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const cuponera = process.env.NEXT_PUBLIC_CUPONERA_URL || 'https://darkside-cafe.vercel.app/tarjeta'
+  const menu     = process.env.NEXT_PUBLIC_MENU_URL     || 'https://darkside-cafe.vercel.app/menu'
   const penca    = process.env.NEXT_PUBLIC_PENCA_URL    || 'https://darkside-penca.vercel.app'
   const quiz     = process.env.NEXT_PUBLIC_QUIZ_URL     || '#'
   const tienda   = 'https://darksidebros.com.uy'
 
   const APPS = [
     { id: 'cuponera',  icon: '☕', label: 'CUPONERA',     sub: 'Fidelidad & sellos',  href: cuponera },
+    { id: 'menu',      icon: '🍽️', label: 'MENÚ',         sub: 'Dulces, salados y café', href: menu },
     { id: 'penca',     icon: '⚽', label: 'PENCA',        sub: 'Pronósticos 2026',    href: penca },
     { id: 'duomity',   icon: '🎯', label: 'DUOMITY',      sub: 'Torneos & trivias',   href: quiz },
     { id: 'duomityg',  icon: '☠️', label: 'DUOMITY GEEK', sub: 'Quiz por universos',  href: null },
