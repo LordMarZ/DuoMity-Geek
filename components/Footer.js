@@ -43,9 +43,13 @@ export default function Footer() {
               style={{ fontSize: 12, color: 'var(--text-muted)', textDecoration: 'none' }}>
               📍 Soriano 1062, Mvd
             </a>
+            <a href="https://wa.me/59892211177" target="_blank" rel="noopener"
+              style={{ fontSize: 12, color: 'var(--text-muted)', textDecoration: 'none' }}>
+              💬 092 211 177
+            </a>
             <a href="tel:+59829000220"
               style={{ fontSize: 12, color: 'var(--text-muted)', textDecoration: 'none' }}>
-              📞 +598 2900 0220
+              ☎️ 2900 0220
             </a>
             <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>
               🕐 Lun–Vie 9–20h · Sáb 10–19h
